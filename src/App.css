@@ -1,0 +1,145 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xxx-large;
+  font-weight: bold;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 20px;
+}
+
+.poster {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.life {
+  width: 1430px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-grow: 1;
+  flex-basis: 9%;
+
+  counter-reset: year;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+   }
+}
+
+.week {
+  border-radius: 8px;
+  background: white;
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
+  margin-bottom: 2px;
+
+
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+}
+
+.fade-in {
+  animation: fadeInAnimation;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.week:nth-child(4n) {
+  margin-right: 15px;
+}
+
+.week:nth-child(520n), .week:nth-child(520n-1), .week:nth-child(520n-2), .week:nth-child(520n-3), .week:nth-child(520n-4), .week:nth-child(520n-5), .week:nth-child(520n-6), .week:nth-child(520n-7), .week:nth-child(520n-8), .week:nth-child(520n-9), .week:nth-child(520n-10), .week:nth-child(520n-11),
+.week:nth-child(520n-12), .week:nth-child(520n-13), .week:nth-child(520n-14), .week:nth-child(520n-15), .week:nth-child(520n-16), .week:nth-child(520n-17), .week:nth-child(520n-18), .week:nth-child(520n-19), .week:nth-child(520n-20), .week:nth-child(520n-21), .week:nth-child(520n-22), .week:nth-child(520n-23),
+.week:nth-child(520n-24), .week:nth-child(520n-25), .week:nth-child(520n-26), .week:nth-child(520n-27), .week:nth-child(520n-28), .week:nth-child(520n-29), .week:nth-child(520n-30), .week:nth-child(520n-31), .week:nth-child(520n-32), .week:nth-child(520n-33), .week:nth-child(520n-34), .week:nth-child(520n-35),
+.week:nth-child(520n-36), .week:nth-child(520n-37), .week:nth-child(520n-38), .week:nth-child(520n-39), .week:nth-child(520n-40), .week:nth-child(520n-41), .week:nth-child(520n-42), .week:nth-child(520n-43), .week:nth-child(520n-44), .week:nth-child(520n-45), .week:nth-child(520n-46), .week:nth-child(520n-47),
+.week:nth-child(520n-48), .week:nth-child(520n-49), .week:nth-child(520n-50), .week:nth-child(520n-51)
+ {
+  margin-bottom: 15px;
+}
+
+.week:first-child::before {
+  content: counter(year);
+  position: relative;
+  left: -25px;
+}
+
+.week:nth-child(52n)::after {
+  content: counter(year);
+  margin-left: 30px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+
+.week:nth-child(52n+1)::before {
+  counter-increment: year; 
+  content: counter(year);
+  position: relative;
+  left: -55px;
+  text-align: right;
+  display: inline-block; 
+  width: 45px; 
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+
+.marked {
+  background: black;
+  width: 20px;
+  height: 20px;
+}
+
+.birthday-modal {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  right: 40%;
+  bottom: 40%;
+  border: 2px solid darksalmon;
+  border-radius: 15px;
+  background-color: rgba(114, 131, 179, 0.3);
+  backdrop-filter: blur(2px);
+}
+
+.birthday-modal span {
+  padding: 5px;
+}
+
+.birthday-modal form {
+  margin-top: 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.birthday-modal .datepicker {
+  width: fit-content;
+}
+
+.birthday-modal .submit {
+  width: fit-content;
+  height: 31.5px;
+  background-color: darksalmon;
+  cursor: pointer;
+}
+
+.birthday-modal .wrapper {
+  display: flex;
+}
