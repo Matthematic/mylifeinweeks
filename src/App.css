@@ -118,10 +118,7 @@ body {
 
 .options-modal {
   position: absolute;
-  top: 40%;
-  left: 40%;
-  right: 40%;
-  bottom: 30%;
+  transform: translate(-50%, -50%);
   border: 2px solid darksalmon;
   border-radius: 15px;
   background-color: rgba(114, 131, 179, 0.3);
