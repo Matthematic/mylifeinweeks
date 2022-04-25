@@ -1,37 +1,67 @@
 import React, { useLayoutEffect } from 'react';
 import moment from 'moment';
 import Year from './Year';
-import BirthdayModal from './BirthdayModal';
+import OptionsModal from './OptionsModal';
 
-const years = [...Array(88).keys()].map(() => <Year />);
 
 function fadeIn (item, delay) {
     setTimeout(() => {
-        item.classList.add('fade-in')
+        if (item) {
+            item.classList.add('fade-in')
+        }
+        else {
+            console.error("Item not found");
+        }
     }, delay)
 }
 
 function mark (item) {
-    item.classList.add('marked')
+    if (item) {
+        item.classList.add('marked')
+    }
+    else {
+        console.error("Item not found");
+    }
+}
+
+function makeShape(item, shape) {
+    if (item) {
+        item.classList.add(shape)
+    }
+    else {
+        console.error("Item not found");
+    }
 }
 
 const Life = () => {
+    const [isModalOpen, setIsModalOpen] = React.useState(true);
     const [birthday, setBirthday] = React.useState();
+    const [lifeExpectancy, setLifeExpectancy] = React.useState(88);
+    const [shape, setShape] = React.useState('rounded');
+
+    console.log("shape", shape);
+    const years = [...Array(Number(lifeExpectancy)).keys()].map(() => <Year />);
+
+    console.log(lifeExpectancy, years.length)
 
     const elapsed = moment().diff(moment(birthday), 'week');
     console.log("elapsed", elapsed);
 
     useLayoutEffect(() => {
         var items = document.getElementsByClassName("week");
-        for (let i = 0; i < elapsed; ++i) {
-            mark(items[i], i);
-            fadeIn(items[i], i)
+        for (let i = 0; i < items.length; ++i) {
+            makeShape(items[i], shape);
+            console.log("added shape")
+            if (i <= elapsed) {
+                mark(items[i], i);
+                fadeIn(items[i], i);
+            }
         }
     });
 
     return (<div className="life">
-        <BirthdayModal onSubmit={(birthday) => { setBirthday(birthday) }} />
-        { years }
+        <OptionsModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onSubmit={({ birthday, lifeExpectancy, shape }) => { setBirthday(birthday); setLifeExpectancy(lifeExpectancy); setShape(shape); }} />
+        { !isModalOpen && years }
     </div>);
 }
 

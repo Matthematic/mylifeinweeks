@@ -1,10 +1,14 @@
+body {
+  background-image: url('./moroccan-flower.png');
+}
+
 .header {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: xxx-large;
   font-weight: bold;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Helvetica, sans-serif;
   margin-bottom: 20px;
 }
 
@@ -38,9 +42,16 @@
    }
 }
 
-.week {
+.rounded {
   border-radius: 8px;
-  background: white;
+}
+
+.circle {
+  border-radius: 15px;
+}
+
+.week {
+  background: seashell;
   width: 20px;
   height: 20px;
   margin-right: 2px;
@@ -99,47 +110,60 @@
 }
 
 .marked {
-  background: black;
+  background: #0d0683;
+
   width: 20px;
   height: 20px;
 }
 
-.birthday-modal {
+.options-modal {
   position: absolute;
   top: 40%;
   left: 40%;
   right: 40%;
-  bottom: 40%;
+  bottom: 30%;
   border: 2px solid darksalmon;
   border-radius: 15px;
   background-color: rgba(114, 131, 179, 0.3);
   backdrop-filter: blur(2px);
 }
 
-.birthday-modal span {
+.options-modal span {
   padding: 5px;
 }
 
-.birthday-modal form {
-  margin-top: 50px;
+.options-modal form {
+  margin-right: 10px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: end;
 }
 
-.birthday-modal .datepicker {
+.options-modal .datepicker {
   width: fit-content;
 }
 
-.birthday-modal .submit {
+.options-modal .submit {
   width: fit-content;
   height: 31.5px;
   background-color: darksalmon;
   cursor: pointer;
 }
 
-.birthday-modal .wrapper {
+.options-modal .wrapper {
   display: flex;
+}
+
+.date-picker, .number-picker, .combo-box {
+  width: 200px;
+}
+
+.options-modal h2 {
+  text-align: center;
+}
+
+.footer {
+  text-align: center;
 }
